@@ -39,15 +39,15 @@ export function Cup3D() {
     const handleShape = () => {
         const curve = new THREE.EllipseCurve(
             0, 0,           // center x, y
-            0.3, 0.5,       // xRadius, yRadius
+            0.40, 0.5,      // xRadius, yRadius (adjusted)
             0, Math.PI,     // start angle, end angle
-            false,          // clockwise
-            0               // rotation
+            true,          // clockwise
+            -0.16             // rotation
         );
         const points = curve.getPoints(50);
         const points3d = points.map(p => new THREE.Vector3(p.x, p.y, 0));
         const curve3d = new THREE.CatmullRomCurve3(points3d);
-        return new THREE.TubeGeometry(curve3d, 20, 0.05, 8, false);
+        return new THREE.TubeGeometry(curve3d, 20, 0.04, 8, false);
     };
 
     // Animation loop for waterfall effect
@@ -141,7 +141,7 @@ export function Cup3D() {
             </mesh>
 
             {/* Handle */}
-            <mesh position={[0.95, 1.0, 0]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} castShadow>
+            <mesh position={[1.05, 1.0, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
                 <primitive object={handleShape()} />
                 <meshStandardMaterial
                     color="#ffffff"
