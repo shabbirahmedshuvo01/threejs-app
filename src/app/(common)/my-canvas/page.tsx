@@ -6,6 +6,7 @@ import MyCanvasPage from '@/component/CanvasPages/MyCanvasPage';
 export default function MyCanvas() {
     return (
         <>
+            {/* canvas with next js */}
             <MyCanvasPage />
         </>
     )
